@@ -1,0 +1,66 @@
+### Register
+
+POST http://localhost:8080/api/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username" : "aidil",
+  "password" : "rahasia",
+  "name" : "Aidil Adam"
+}
+
+### Login
+
+POST http://localhost:8080/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "aidil",
+  "password": "rahasia"
+}
+
+### Get User
+GET http://localhost:8080/api/users/current
+Accept: application/json
+X-API-TOKEN: 02fa83f5-a00e-477a-b340-864f0ba426d6
+
+
+### Create Contact
+POST http://localhost:8080/api/contacts
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: 02fa83f5-a00e-477a-b340-864f0ba426d6
+
+{
+  "firstName" : "Adam",
+  "lastName" : "Baik Hati",
+  "email" : "Baik@example.com",
+  "phone" : "3535325"
+}
+
+
+### Get Contact
+GET http://localhost:8080/api/contacts/faddc830-bf3c-4009-ace8-a8526db51051
+Accept: application/json
+X-API-TOKEN: 02fa83f5-a00e-477a-b340-864f0ba426d6
+
+
+### Update Contact
+PUT http://localhost:8080/api/contacts/faddc830-bf3c-4009-ace8-a8526db51051
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: 02fa83f5-a00e-477a-b340-864f0ba426d6
+
+{
+  "firstName" : "Budi",
+  "lastName" : "Nugrohoo",
+  "email" : "budi@example.com",
+  "phone" : "23424234234"
+}
+
+### Remove Contact
+DELETE http://localhost:8080/api/contacts/a2875abf-8a31-4b90-972d-1de67dbc1351
+Accept: application/json
+X-API-TOKEN: 02fa83f5-a00e-477a-b340-864f0ba426d6

@@ -89,6 +89,42 @@ Response Body (Failed, 401) :
 }
 ```
 
+## Update User
+
+Endpoint : PATCH /api/users/current
+
+Request Header :
+
+- X-API-TOKEN : Token (Mandatory)
+
+Request Body :
+
+```json
+{
+  "name" : "Aidil Adam", // put if only want to update name
+  "password" : "new password" // put if only want to update password
+}
+```
+
+Response Body (Success) :
+
+```json
+{
+  "data" : {
+    "username" : "aidil",
+    "name" : "Aidil Adam Baik Hati"
+  }
+}
+```
+
+Response Body (Failed, 401) :
+
+```json
+{
+  "errors" : "Unauthorized"
+}
+```
+
 ## Logout User
 
 Endpoint : DELETE /api/auth/logout

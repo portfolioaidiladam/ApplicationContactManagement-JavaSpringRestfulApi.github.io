@@ -96,17 +96,21 @@ public class ContactService {
     @Transactional(readOnly = true)
     public Page<ContactResponse> search(User user, SearchContactRequest request) {
         Specification<Contact> specification = (root, query, builder) -> {
+            //  karena informasi querynya itu dinamis kita akan simpan daftar predikatnya itu didalam list
             List<Predicate> predicates = new ArrayList<>();
             predicates.add(builder.equal(root.get("user"), user));
+            // predikatnya kita cek dulu yang nama
             if (Objects.nonNull(request.getName())) {
                 predicates.add(builder.or(
                         builder.like(root.get("firstName"), "%" + request.getName() + "%"),
                         builder.like(root.get("lastName"), "%" + request.getName() + "%")
                 ));
             }
+            // predikatnya kita cek dulu yang email
             if (Objects.nonNull(request.getEmail())) {
                 predicates.add(builder.like(root.get("email"), "%" + request.getEmail() + "%"));
             }
+            // predikatnya kita cek dulu yang phone
             if (Objects.nonNull(request.getPhone())) {
                 predicates.add(builder.like(root.get("phone"), "%" + request.getPhone() + "%"));
             }

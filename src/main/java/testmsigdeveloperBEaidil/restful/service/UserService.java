@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import testmsigdeveloperBEaidil.restful.entity.User;
 import testmsigdeveloperBEaidil.restful.model.RegisterUserRequest;
 
+import testmsigdeveloperBEaidil.restful.model.UpdateUserRequest;
 import testmsigdeveloperBEaidil.restful.model.UserResponse;
 import testmsigdeveloperBEaidil.restful.repository.UserRepository;
 import testmsigdeveloperBEaidil.restful.security.BCrypt;
@@ -53,10 +54,10 @@ public class UserService {
                 .build();
     }
 
-    /*@Transactional
+    @Transactional
     public UserResponse update(User user, UpdateUserRequest request) {
         validationService.validate(request);
-
+        // kita coba tambahkan lognya, apakah bener datanya masuk atau tidak
         log.info("REQUEST : {}", request);
 
         if (Objects.nonNull(request.getName())) {
@@ -68,12 +69,12 @@ public class UserService {
         }
 
         userRepository.save(user);
-
+        // kita log lagi disini
         log.info("USER : {}", user.getName());
 
         return UserResponse.builder()
                 .name(user.getName())
                 .username(user.getUsername())
                 .build();
-    }*/
+    }
 }

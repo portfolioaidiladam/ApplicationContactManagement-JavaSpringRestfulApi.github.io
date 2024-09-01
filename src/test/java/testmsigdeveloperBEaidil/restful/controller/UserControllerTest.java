@@ -192,7 +192,7 @@ class UserControllerTest {
         });
     }
 
-   /* @Test
+    @Test
     void updateUserUnauthorized() throws Exception {
         UpdateUserRequest request = new UpdateUserRequest();
 
@@ -212,6 +212,7 @@ class UserControllerTest {
     }
 
     @Test
+    // error 401 artinya Unauthorized
     void updateUserSuccess() throws Exception {
         User user = new User();
         user.setUsername("test");
@@ -222,8 +223,8 @@ class UserControllerTest {
         userRepository.save(user);
 
         UpdateUserRequest request = new UpdateUserRequest();
-        request.setName("Eko");
-        request.setPassword("eko12345");
+        request.setName("Aidil");
+        request.setPassword("aidil12345");
 
         mockMvc.perform(
                 patch("/api/users/current")
@@ -236,14 +237,14 @@ class UserControllerTest {
         ).andDo(result -> {
             WebResponse<UserResponse> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
             });
-
+            // ngambilnya dari response
             assertNull(response.getErrors());
-            assertEquals("Eko", response.getData().getName());
+            assertEquals("Aidil", response.getData().getName());
             assertEquals("test", response.getData().getUsername());
-
+            // cek ke database
             User userDb = userRepository.findById("test").orElse(null);
             assertNotNull(userDb);
-            assertTrue(BCrypt.checkpw("eko12345", userDb.getPassword()));
+            assertTrue(BCrypt.checkpw("aidil12345", userDb.getPassword()));
         });
-    }*/
+    }
 }

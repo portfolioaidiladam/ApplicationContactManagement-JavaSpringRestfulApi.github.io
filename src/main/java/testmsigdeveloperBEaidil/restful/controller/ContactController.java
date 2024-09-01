@@ -59,11 +59,11 @@ public class ContactController {
         return WebResponse.<String>builder().data("OK").build();
     }
 
-    /*@GetMapping(
+    @GetMapping(
             path = "/api/contacts",
             produces = MediaType.APPLICATION_JSON_VALUE
-    )*/
-   /* public WebResponse<List<ContactResponse>> search(User user,
+    )
+    public WebResponse<List<ContactResponse>> search(User user,
                                                      @RequestParam(value = "name", required = false) String name,
                                                      @RequestParam(value = "email", required = false) String email,
                                                      @RequestParam(value = "phone", required = false) String phone,
@@ -86,5 +86,5 @@ public class ContactController {
                         .size(contactResponses.getSize())
                         .build())
                 .build();
-    }*/
+    }
 }

@@ -261,8 +261,9 @@ class ContactControllerTest {
             assertEquals("OK", response.getData());
         });
     }
-/*
+
     @Test
+    // eror 404 artinya urlnya tidak ketemu
     void searchNotFound() throws Exception {
         mockMvc.perform(
                 get("/api/contacts")
@@ -290,16 +291,16 @@ class ContactControllerTest {
             Contact contact = new Contact();
             contact.setId(UUID.randomUUID().toString());
             contact.setUser(user);
-            contact.setFirstName("Eko " + i);
-            contact.setLastName("Khanedy");
-            contact.setEmail("eko@example.com");
+            contact.setFirstName("Aidil " + i);
+            contact.setLastName("Adam");
+            contact.setEmail("aidil@example.com");
             contact.setPhone("9238423432");
             contactRepository.save(contact);
         }
 
         mockMvc.perform(
                 get("/api/contacts")
-                        .queryParam("name", "Eko")
+                        .queryParam("name", "Aidil")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("X-API-TOKEN", "test")
@@ -317,7 +318,7 @@ class ContactControllerTest {
 
         mockMvc.perform(
                 get("/api/contacts")
-                        .queryParam("name", "Khanedy")
+                        .queryParam("name", "Adam")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("X-API-TOKEN", "test")
@@ -387,5 +388,5 @@ class ContactControllerTest {
             assertEquals(1000, response.getPaging().getCurrentPage());
             assertEquals(10, response.getPaging().getSize());
         });
-    }*/
+    }
 }

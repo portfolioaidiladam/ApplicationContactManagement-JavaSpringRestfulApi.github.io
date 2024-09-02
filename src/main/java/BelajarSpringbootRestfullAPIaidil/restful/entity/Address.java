@@ -1,4 +1,4 @@
-package BelajarSpringbootRestfullAPIaidil.restful.entity;
+package testmsigdeveloperBEaidil.restful.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,9 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 
-// membuat address Entity
-// buat dulu table addresnya di database kemudian javanya disini
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,7 +26,7 @@ public class Address {
     private String province;
 
     private String country;
-    // karena namanya beda kita tambahkan @ Coloumn
+
     @Column(name = "postal_code")
     private String postalCode;
 
@@ -36,6 +35,6 @@ public class Address {
     private Contact contact;
 
     /*@OneToMany (mappedBy = "contact")
-    private List<Address> addresses;
-*/
+    private List <Address> addresses;*/
+
 }

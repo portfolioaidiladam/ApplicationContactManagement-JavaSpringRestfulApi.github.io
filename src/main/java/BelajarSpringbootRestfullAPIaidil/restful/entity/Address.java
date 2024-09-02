@@ -1,12 +1,10 @@
-package testmsigdeveloperBEaidil.restful.entity;
+package BelajarSpringbootRestfullAPIaidil.restful.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
